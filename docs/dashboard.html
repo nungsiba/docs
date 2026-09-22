@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DOCSAVER — Documents</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="app-header" id="app-header"></header>
+
+<main class="main">
+  <div class="page-heading">
+    <div>
+      <h1 id="viewing-heading">Documents</h1>
+      <p id="viewing-subheading">Choose a family member, then a document type.</p>
+    </div>
+  </div>
+
+  <div class="family-strip" id="family-strip"></div>
+
+  <div class="doc-grid" id="doc-grid"></div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/supabaseClient.js"></script>
+<script src="js/docTypes.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

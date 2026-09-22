@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DOCSAVER — Admin</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="app-header" id="app-header"></header>
+
+<main class="main">
+  <div class="page-heading">
+    <div>
+      <h1>Admin</h1>
+      <p>Create logins for family members and manage the family list.</p>
+    </div>
+  </div>
+
+  <div id="msg-slot"></div>
+
+  <div class="card" style="margin-bottom:1.75rem;">
+    <h2>Add a family member</h2>
+    <form id="create-form">
+      <div class="field">
+        <label for="c-name">Name</label>
+        <input type="text" id="c-name" required />
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="c-phone">Phone number</label>
+          <input type="tel" id="c-phone" />
+        </div>
+        <div class="field">
+          <label for="c-dob">Date of birth</label>
+          <input type="date" id="c-dob" />
+        </div>
+      </div>
+      <div class="field">
+        <label for="c-address">Address</label>
+        <textarea id="c-address"></textarea>
+      </div>
+      <button type="submit" class="btn btn-brass">Create login</button>
+    </form>
+  </div>
+
+  <h2>Family members</h2>
+  <table>
+    <thead>
+      <tr><th>Name</th><th>User ID</th><th>Password</th><th>Role</th><th></th></tr>
+    </thead>
+    <tbody id="users-table-body"></tbody>
+  </table>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/supabaseClient.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

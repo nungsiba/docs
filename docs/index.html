@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DOCSAVER — Sign in</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="login-shell">
+  <div class="login-card">
+    <div class="brand"><span class="mark">D</span> DOCSAVER</div>
+    <p class="login-tagline">Your family's documents, kept in one place.</p>
+
+    <div id="msg-slot"></div>
+
+    <!-- FAMILY LOGIN -->
+    <form id="family-login-form">
+      <div class="field">
+        <label for="uid">User ID</label>
+        <input type="text" id="uid" placeholder="e.g. raj" autocomplete="username" required />
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" autocomplete="current-password" required />
+      </div>
+      <button type="submit" class="btn btn-brass btn-full">Sign in</button>
+    </form>
+
+    <!-- ADMIN LOGIN -->
+    <form id="admin-login-form" class="hidden">
+      <div class="field">
+        <label for="admin-password">Admin password</label>
+        <input type="password" id="admin-password" autocomplete="current-password" required />
+      </div>
+      <button type="submit" class="btn btn-brass btn-full">Sign in as admin</button>
+    </form>
+
+    <div class="login-mode-toggle">
+      <button type="button" id="toggle-to-admin">Admin login</button>
+      <span class="hidden" id="toggle-to-family-wrap">
+        <button type="button" id="toggle-to-family">Family login</button>
+      </span>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/supabaseClient.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

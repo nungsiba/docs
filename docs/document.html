@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DOCSAVER — Document</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="app-header" id="app-header"></header>
+
+<main class="main">
+  <div class="page-heading">
+    <div>
+      <h1 id="doc-heading">Document</h1>
+      <p id="doc-subheading"></p>
+    </div>
+    <a href="dashboard.html" class="btn btn-outline btn-sm">← Back to documents</a>
+  </div>
+
+  <div id="msg-slot"></div>
+
+  <!-- VIEW MODE: document already exists -->
+  <div id="view-mode" class="hidden">
+    <div class="doc-actions">
+      <a id="download-link" class="btn btn-brass" download>Download PDF</a>
+      <button id="print-btn" class="btn btn-outline">Print</button>
+      <button id="edit-btn" class="btn btn-outline">Replace / edit</button>
+    </div>
+    <iframe id="preview-frame" class="doc-preview-frame" title="Document preview"></iframe>
+  </div>
+
+  <!-- EDIT MODE: no document yet, or replacing one -->
+  <div id="edit-mode" class="hidden">
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="upload">Upload a photo / scan</button>
+      <button class="tab-btn" data-tab="type">Type in the details</button>
+    </div>
+
+    <div id="tab-upload" class="card">
+      <div class="field">
+        <label for="file-input">Choose an image of the document</label>
+        <input type="file" id="file-input" accept="image/*" />
+        <p class="field-hint">This will be saved as a PDF automatically.</p>
+      </div>
+      <button id="upload-save-btn" class="btn btn-brass">Save document</button>
+    </div>
+
+    <div id="tab-type" class="card hidden">
+      <form id="fields-form"></form>
+      <button id="type-save-btn" class="btn btn-brass">Generate & save PDF</button>
+    </div>
+  </div>
+
+  <div id="no-access" class="empty-state hidden">
+    <p>You can view this document, but only its owner or an admin can add or edit it.</p>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/supabaseClient.js"></script>
+<script src="js/docTypes.js"></script>
+<script src="js/pdfGenerator.js"></script>
+<script src="js/document.js"></script>
+</body>
+</html>

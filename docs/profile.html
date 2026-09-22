@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DOCSAVER — Profile</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="app-header" id="app-header"></header>
+
+<main class="main-narrow">
+  <div class="page-heading">
+    <h1>Profile</h1>
+  </div>
+
+  <div id="msg-slot"></div>
+
+  <div class="family-strip" id="family-strip"></div>
+
+  <div class="card">
+    <form id="profile-form">
+      <div class="field">
+        <label>User ID</label>
+        <input type="text" id="p-uid" disabled />
+      </div>
+      <div class="field">
+        <label for="p-name">Name</label>
+        <input type="text" id="p-name" required />
+      </div>
+      <div class="field">
+        <label for="p-phone">Phone number</label>
+        <input type="tel" id="p-phone" />
+      </div>
+      <div class="field">
+        <label for="p-dob">Date of birth</label>
+        <input type="date" id="p-dob" />
+      </div>
+      <div class="field">
+        <label for="p-address">Address</label>
+        <textarea id="p-address"></textarea>
+      </div>
+      <button type="submit" class="btn btn-brass" id="save-btn">Save changes</button>
+      <p class="small-note" id="readonly-note"></p>
+    </form>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/supabaseClient.js"></script>
+<script src="js/profile.js"></script>
+</body>
+</html>
