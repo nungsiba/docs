@@ -87,6 +87,7 @@ async function loadUsers() {
         <a class="btn btn-outline btn-sm" href="profile.html?id=${u.id}">Edit</a>
         <a class="btn btn-outline btn-sm" href="dashboard.html?as=${u.id}">Documents</a>
         ${u.role !== "admin" ? `<button class="btn btn-outline btn-sm" data-reset="${u.id}">Reset password</button>` : ""}
+        ${u.role !== "admin" ? `<button class="btn btn-danger btn-sm" data-delete="${u.id}" data-name="${u.name}">Delete</button>` : ""}
       </td>
     </tr>`
     )
@@ -99,6 +100,23 @@ async function loadUsers() {
         showMsg(`Password reset to: ${result.password}`, "success");
       } catch (err) {
         showMsg("Could not reset password: " + err.message);
+      }
+    });
+  });
+
+  tbody.querySelectorAll("[data-delete]").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const name = btn.dataset.name;
+      const sure = confirm(
+        `Delete ${name}'s login and ALL of their documents? This can't be undone.`
+      );
+      if (!sure) return;
+      try {
+        await callAdminAction({ action: "delete_user", user_id: btn.dataset.delete });
+        showMsg(`${name}'s login and documents were deleted.`, "success");
+        await loadUsers();
+      } catch (err) {
+        showMsg("Could not delete: " + err.message);
       }
     });
   });
